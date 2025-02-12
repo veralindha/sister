@@ -9,6 +9,30 @@ nextButton.textContent = "Next";
 backButton.classList.add("back-button"); // Add class for styling
 nextButton.classList.add("next-button"); // Add class for styling
 modal.querySelector(".modal-content").insertBefore(backButton, nextButton);
+window.addEventListener('load', (event) => {
+    document.getElementById('myAudio').play();
+});
+
+let currentAudio;
+
+function playMusic(audioFile) {
+  const audio = document.getElementById('myAudio');
+
+  // Hentikan audio yang sedang diputar (jika ada)
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+
+  // Set sumber audio baru
+  audio.src = `${audioFile}.mp3`; // Ganti .mp3 dengan format file audio Anda
+
+  // Putar audio baru
+  audio.play();
+
+  // Simpan referensi audio yang sedang diputar
+  currentAudio = audio;
+}
+
 let currentMessageIndex = 0;
 const messages = [
     "Yang ke loro, umure kamu sudah rong puluh tiga, tidak keroso ya sudah setuek itu",
